@@ -4,7 +4,7 @@ import { useState } from 'react'
 import useSWR from 'swr'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
+
 
 interface Bookmark {
   id: string
@@ -221,13 +221,9 @@ export default function BookmarkDashboard({ userEmail, userName, userAvatar }: P
             </div>
             <div style={{ display:'flex', alignItems:'center', gap:'12px' }}>
               <div style={{ display:'flex', alignItems:'center', gap:'8px' }}>
-                {userAvatar ? (
-                  <Image src={userAvatar} alt={userName} width={30} height={30} style={{ borderRadius:'50%', border:'2px solid rgba(139,92,246,0.5)' }} />
-                ) : (
-                  <div style={{ width:'30px', height:'30px', background:'linear-gradient(135deg,#7c3aed,#0ea5e9)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'13px', fontWeight:'600', color:'white' }}>
-                    {userName.charAt(0).toUpperCase()}
-                  </div>
-                )}
+            <div style={{ width:'30px', height:'30px', background:'linear-gradient(135deg,#7c3aed,#0ea5e9)', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'13px', fontWeight:'600', color:'white' }}>
+  {userName.charAt(0).toUpperCase()}
+</div>
                 <span style={{ fontSize:'13px', color:'rgba(255,255,255,0.7)', maxWidth:'140px', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{userName}</span>
               </div>
               <button className="signout-btn" onClick={handleSignOut} disabled={signingOut}>
